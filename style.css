@@ -1,170 +1,91 @@
-/* Base Styles */
+/* --- Variables & Reset --- */
 :root {
-    --bg-color: #0a0a0c;
-    --text-color: #ffffff;
-    --accent-color: #007bff; /* Electric Blue */
-    --card-bg: #16161a;
-    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --bg: #0d0d0f;
+    --text: #e0e0e0;
+    --accent: #ff3e3e; /* Bold Red Accent */
+    --card-bg: #1a1a1d;
+    --transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; overflow: hidden; }
 
-html {
-    scroll-behavior: smooth;
-}
+/* --- Hidden Radios for Nav Logic --- */
+input[type="radio"] { display: none; }
 
-body {
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    font-family: var(--font-family);
-    line-height: 1.6;
-}
-
-/* Typography */
-h2 {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
-.accent {
-    color: var(--accent-color);
-}
-
-/* Header */
+/* --- Layout --- */
 header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: rgba(10, 10, 12, 0.9);
-    padding: 1rem 0;
-    z-index: 1000;
+    position: fixed; top: 0; width: 100%; height: 70px;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 0 50px; background: rgba(13, 13, 15, 0.95); z-index: 100;
 }
 
-nav {
-    display: flex;
-    justify-content: space-between;
-    width: 80%;
-    margin: 0 auto;
-    align-items: center;
+.logo { font-size: 1.5rem; font-weight: bold; color: var(--accent); }
+nav label { margin-left: 20px; cursor: pointer; transition: var(--transition); }
+nav label:hover { color: var(--accent); }
+
+.page {
+    position: absolute; top: 70px; width: 100%; height: calc(100vh - 70px);
+    padding: 50px; display: none; opacity: 0;
+    transition: opacity 0.5s ease;
 }
 
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
+/* --- Navigation Logic (The "JS-less" magic) --- */
+#home-radio:checked ~ main #home,
+#about-radio:checked ~ main #about,
+#projects-radio:checked ~ main #projects,
+#achievements-radio:checked ~ main #achievements,
+#education-radio:checked ~ main #education,
+#contact-radio:checked ~ main #contact
+ {
+    display: block; opacity: 1; animation: fadeIn 0.8s ease;
 }
 
-nav a {
-    text-decoration: none;
-    color: var(--text-color);
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
-
-nav a:hover {
-    color: var(--accent-color);
-}
-
-/* Hero Section */
-#hero {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-
-.hero-content h1 {
-    font-size: 4rem;
-    animation: fadeInDown 1s ease-out;
-}
-
-.hero-content p {
-    font-size: 1.5rem;
-    opacity: 0;
-    animation: fadeIn 1s ease-in 0.5s forwards;
-}
-
-/* Projects Section */
-#projects {
-    padding: 100px 10%;
-}
-
-.card-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-}
-
-.card {
-    background: var(--card-bg);
-    padding: 2rem;
-    border-radius: 10px;
-    border: 1px solid #333;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-}
-
-.card:hover {
-    transform: translateY(-10px);
-    border-color: var(--accent-color);
-    box-shadow: 0 10px 20px rgba(0, 123, 255, 0.2);
-}
-
-/* Achievements Section */
-#achievements {
-    padding: 100px 10%;
-}
-
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-}
-
-.achieve-card img {
-    width: 100%;
-    height: auto;
-    border-radius: 5px;
-    transition: transform 0.4s ease;
-}
-
-.achieve-card:hover img {
-    transform: scale(1.05);
-}
-
-/* Footer */
-footer {
-    text-align: center;
-    padding: 2rem;
-    background: var(--card-bg);
-}
-
-.social-links a {
-    color: var(--text-color);
-    text-decoration: none;
-    margin: 0 15px;
-    font-size: 1.2rem;
-    transition: color 0.3s ease;
-}
-
-.social-links a:hover {
-    color: var(--accent-color);
-}
-
-/* CSS Animations */
-@keyframes fadeInDown {
-    from { opacity: 0; transform: translateY(-20px); }
+/* --- Hero Animation --- */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
 }
+/* Add this to your style.css */
 
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+.profile-photo {
+    width: 200px;       /* Adjust size as needed */
+    height: 250px;      /* Keep width and height the same for a circle */
+    border-radius: 100%; /* Makes the image circular */
+    object-fit: cover;  /* Ensures image doesn't stretch */
+    border: 4px solid #f90505; /* Adds a border around the photo */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Adds a shadow */
+    margin-bottom: 20px; /* Space between photo and name */
 }
+.hero-content {
+    display: flex; flex-direction: column; justify-content: center;
+    height: 100%; align-items: center; text-align: center;
+}
+
+.hero-content h1 { font-size: 4rem; margin-bottom: 10px; }
+.subtitle { font-size: 1.5rem; color: var(--accent); margin-bottom: 30px; }
+
+.socials a {
+    color: var(--text); text-decoration: none; margin: 0 15px;
+    padding-bottom: 5px; border-bottom: 2px solid transparent;
+    transition: var(--transition);
+}
+.socials a:hover { border-bottom: 2px solid var(--accent); }
+
+/* --- Grid & Cards --- */
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
+.card {
+    background: var(--card-bg); padding: 30px; border-radius: 10px;
+    transition: var(--transition); border: 1px solid #333;
+}
+.card:hover {
+    transform: translateY(-10px) scale(1.02);
+    border-color: var(--accent); box-shadow: 0 10px 30px rgba(255, 62, 62, 0.1);
+}
+
+.achievement-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+.achieve-card img {
+    width: 100%; border-radius: 5px; transition: var(--transition);
+    filter: grayscale(100%);
+}
+.achieve-card:hover img { filter: grayscale(0%); transform: scale(1.05); }

@@ -8,59 +8,132 @@
 </head>
 <body>
 
+    <input type="radio" name="nav" id="home-radio" checked>
+    <input type="radio" name="nav" id="about-radio">
+    <input type="radio" name="nav" id="projects-radio">
+    <input type="radio" name="nav" id="achievements-radio">
+    <input type="radio" name="nav" id="education-radio">
+    <input type="radio" name="nav" id="contact-radio">
+
     <header>
         <nav>
-            <div class="logo">S.S.E</div>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#achievements">Achievements</a></li>
-            </ul>
+            <label for="home-radio">Home</label>
+            <label for="about-radio">About</label>
+            <label for="projects-radio">Projects</label>
+            <label for="achievements-radio">Achievements</label>
+            <label for="education-radio">Education</label>
+            <label for="contact-radio">Contact</label>
         </nav>
     </header>
 
-    <section id="hero">
-        <div class="hero-content">
-            <h1>Hi, This is <span class="accent">Ekanto</span>.</h1>
-            <p>CSE Undergrad | Front-End Focused</p>
-        </div>
-    </section>
-
-    <section id="projects">
-        <h2>Projects</h2>
-        <div class="card-container">
-            <div class="card">
-                <h3>SQL Project</h3>
-                <p>Database design and optimization.</p>
+    <main>
+        <section id="home" class="page">
+            <div class="hero-content">
+                <img src="images/Profile.jpeg" alt="Swapnil" class="profile-photo">
+                <h2>Hi there, this is</h2>
+                <h1>Swapnil Sotej Ekanto</h1>
+                <p class="subtitle">Welcome to my Portfolio </p>
+            
             </div>
-            <div class="card">
-                <h3>Java Project</h3>
-                <p>Application development.</p>
+        </section>
+
+        <section id="about" class="page">
+            <h2>About Me</h2>
+            <p>Hello! I am Swapnil Sotej Ekanto, a driven Computer Science and Engineering (CSE) undergraduate currently in my 3rd year at the University of Asia Pacific.
+            Originally from Lalmonirhat, I completed my HSC at Cantonment Public School and College and my SSC at Lalmonirhat Govt. High School.
+            Beyond the world of code, I am deeply fascinated by historical events and geopolitics. When I'm not studying algorithms, you can find me watching football or indulging in my passion for reciting poetry.</p>
+        </section>
+
+        <section id="projects" class="page">
+            <h2>Projects</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Database Management System Project</h3>
+                    <p>Disaster management system</p>
+                    <img src="images\WhatsApp Image 2026-02-16 at 2.29.56 AM.jpeg" alt="DMS">
+                </div>
+                <div class="card">
+                    <h3>Porfolio Project</h3>
+                    <p>HTML and CSS</p>
+                   <img src="C:\Users\hp\Desktop\Portfolio\images\Professional-portfolio-736x414.webp" alt="HTML">
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="achievements">
-        <h2>Achievements</h2>
-        <div class="grid-container">
-            <div class="achieve-card"><img src="https://via.placeholder.com/300x200?text=Award+1" alt="Award 1"></div>
-            <div class="achieve-card"><img src="https://via.placeholder.com/300x200?text=Award+2" alt="Award 2"></div>
-            <div class="achieve-card"><img src="https://via.placeholder.com/300x200?text=Award+3" alt="Award 3"></div>
-            <div class="achieve-card"><img src="https://via.placeholder.com/300x200?text=Award+4" alt="Award 4"></div>
-            <div class="achieve-card"><img src="https://via.placeholder.com/300x200?text=Dean's+List" alt="Deans List"></div>
-            <div class="achieve-card"><img src="https://via.placeholder.com/300x200?text=Placeholder" alt="Award 6"></div>
-            <div class="achieve-card"><img src="https://via.placeholder.com/300x200?text=Placeholder" alt="Award 7"></div>
-            <div class="achieve-card"><img src="https://via.placeholder.com/300x200?text=Placeholder" alt="Award 8"></div>
-        </div>
-    </section>
+        <section id="achievements" class="page">
+            <h2>Achievements</h2>
+            <div class="grid achievement-grid">
 
-    <footer>
-        <div class="social-links">
-            <a href="#">Facebook</a>
-            <a href="#">X</a>
-            <a href="#">Codeforces</a>
-        </div>
-    </footer>
+                <div class="achieve-card">
+                    <img src="images/WhatsApp Image 2026-02-16 at 12.26.55 AM.jpeg" alt="National Award">
+                    <h2>National Award 2012</h2>
+                </div>
+                <div class="achieve-card">
+                    
+                    <img src="images/WhatsApp Image 2026-02-16 at 12.26.02 AM (1).jpeg" alt="National Award">
+                    <h2>National Award 2016</h2>
+                </div>
+                <div class="achieve-card">
+                    
+                    <img src="images/WhatsApp Image 2026-02-16 at 12.26.01 AM.jpeg" alt="National Award">
+                    <h2>National Award 2017</h2>
+                </div>
+        
+                <div class="achieve-card">
+                    
+                    <img src="images/WhatsApp Image 2026-02-16 at 12.26.02 AM.jpeg" alt="National Award">
+                    <h2>National Award 2018</h2>
+                </div>
+                <div class="achieve-card"><img src="C:\Users\hp\Desktop\Portfolio\images\Fall23.jpeg" alt="Dean's List Fall23">
+                <h2>Dean's List Fall23</h2></div>
+                <div class="achieve-card"><img src="C:\Users\hp\Desktop\Portfolio\images\Spring24.jpeg" alt="Dean's List Spring24">
+                <h2>Dean's List Spring24</h2></div>
+            </div>
+        </section>
+
+        <section id="education" class="page">
+            <h2>Education</h2>
+            <div class="grid">
+                 <div class="edu-card">
+                <h3>Higher Studies</h3>
+                <p><strong>University Of Asia Pacific</strong></p>
+                <p>BSc. in Computer Science and Engineering</p>
+            </div>
+                <div class="edu-card">
+                <h3>Higher Secondary School (HSC) 2021</h3>
+                <p><strong>Cantonment Public School and College, Lalmonirhat</strong></p>
+                <p>Group: Science</p>
+            </div>
+            <div class="edu-card">
+                <h3>Secondary School (SSC) 2019</h3>
+                <p><strong>Lalmonirhat Govt. High School</strong></p>
+                <p>Group: Science</p>
+            </div>
+            </div>
+            
+        </section>
+
+        <section id="contact" class="page">
+            <h2>Contact Me</h2>
+            <p>Feel free to reach out me through:</p>
+            
+            <div class="contact-info">
+                <p><strong>Phone:</strong> +880 1647797601</p>
+                <p><strong>Email:</strong> 23201048@uap-bd.edu</p>
+            <h2>Also on</h2>    
+                <a href="https://www.linkedin.com/in/swapnil-sotej-ekanto-a260833a9/" target="_blank">LinkedIn</a>
+                <a href="https://github.com/ssEkanto" target="_blank">GitHub</a>
+                <a href="https://x.com/smekanto127" target="_blank">X</a>
+                <a href="https://www.facebook.com/ss.ekanto127" target="_blank">Facebook</a>
+            </div>
+                
+               
+                
+    
+           
+        </section>
+      
+    </main>
 
 </body>
 </html>
